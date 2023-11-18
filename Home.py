@@ -20,7 +20,16 @@ st.markdown(
         ### Unleash the Power of Focus with Job Sniffer
 
 Tailored for job seekers, Job Sniffer sifts through the email clutter, filtering out distractions and pinpointing messages 
-relevant to your employment journey. Stay on track with our personalized inbox assistant, tracking your application stages 
-seamlessly—whether it's a rejection, acceptance, technical interview, online assessment, or behavioral evaluation. Simplify
- your job search, and let Job Sniffer guide you through every step with clarity and efficiency."
+relevant to your employment journey. Whether it's a thrilling acceptance, a challenging technical interview, an online 
+assessment adventure, or an enlightening behavioral evaluation. Job Sniffer's advanced AI features empower you to 
+effortlessly organize and manage your application-related emails. With intelligent categorization and reminders, 
+it ensures that you stay focused on what matters most—your career advancement. Maximize efficiency, minimize stress, 
+and let Job Sniffer be your digital companion on the path to professional success."
+
+
+
+
+
+
+
         """)
