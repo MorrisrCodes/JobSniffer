@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import plotly.express as px
 
 # Streamlit layout settings
 st.set_page_config(page_title="Home", layout="centered")
