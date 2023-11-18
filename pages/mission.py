@@ -3,11 +3,16 @@ import streamlit as st
 
 st.set_page_config(page_title="Job Sniffer", layout="centered")
 
-st.markdown("<h1 style='text-align: center; color: #59C866;'>Vision</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #3DD56D;'>Vision</h1>", unsafe_allow_html=True)
 st.subheader("", divider="green",)
 st.markdown('''
 #### Dream with us
-In shaping the future, Job Sniffer envisions a landscape where job seekers effortlessly enhance their application efficiency without compromising submission quality. While the conventional approach often involves pre-filling information, we aim to transcend this model by redefining our perspective on acceptance. Our vision is to empower future job seekers with the ability to invest more time in applications and receive concise, meaningful feedback on their efforts. Job Sniffer seeks to revolutionize the job hunting experience by pushing the boundaries of efficiency, offering a fresh approach that goes beyond existing models, ensuring a more focused and rewarding journey for every user.''')
+In shaping the future, Job Sniffer envisions a landscape where job seekers effortlessly enhance their application efficiency 
+without compromising submission quality. While the conventional approach often involves pre-filling information, we aim to transcend 
+this model by redefining our perspective on acceptance. Our vision is to empower future job seekers with the ability to invest more 
+time in applications and receive concise, meaningful feedback on their efforts. Job Sniffer seeks to revolutionize the job hunting 
+experience by pushing the boundaries of efficiency, offering a fresh approach that goes beyond existing models, ensuring a more 
+focused and rewarding journey for every user.''')
 
 
 st.markdown("<h1 style='text-align: center; color: white;'>Mission</h1>", unsafe_allow_html=True)
