@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-st.set_page_config(page_title="Job Sniffer", layout="centered")
+st.set_page_config(page_title="Job Sniffer", layout="wide")
 
 st.markdown("<h1 style='text-align: center; color: #3DD56D;'>Vision</h1>", unsafe_allow_html=True)
 st.subheader("", divider="green",)
@@ -15,11 +15,11 @@ experience by pushing the boundaries of efficiency, offering a fresh approach th
 focused and rewarding journey for every user.''')
 
 
-st.markdown("<h1 style='text-align: center; color: white;'>Mission</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Mission</h1>", unsafe_allow_html=True)
 st.subheader("", divider="green",)
 st.markdown(
     """
-    #### Unleash the Power of Focus with Job Sniffer
+    #### Unleash the Power of Focus
 
 Tailored for job seekers, Job Sniffer sifts through the email clutter, filtering out distractions and pinpointing messages 
 relevant to your employment journey. Whether it's a thrilling acceptance, a challenging technical interview, an online 
