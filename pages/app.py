@@ -3,7 +3,7 @@ import numpy as np
 import random
 import pandas as pd
 
-email_data_list = [
+email_data = [
     {
         "Company": "Facebook",
         "Date": "7/30",
@@ -37,15 +37,15 @@ email_data_list = [
     # Add more email data as needed
 ]
 
-dfs = []
+data = []
 
 # Iterate through email data and create a DataFrame for each company
-for email_data in email_data_list:
-    df = pd.DataFrame([email_data], columns=["Company", "Date", "Summary", "Status"])
-    dfs.append(df)
+for i in email_data:
+    df = pd.DataFrame([i], columns=["Company", "Date", "Summary", "Status"])
+    data.append(df)
 
 # Concatenate the list of DataFrames into a single DataFrame
-data = pd.concat(dfs, ignore_index=True)
+data = pd.concat(data, ignore_index=True)
 
 # Display the resulting DataFrame in Streamlit
 st.dataframe(data, hide_index=True, width=1000)
