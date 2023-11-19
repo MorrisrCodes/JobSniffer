@@ -87,6 +87,18 @@ if login:
         barmode='stack'
     )
 
+#Verticle Bar Graph
+    #  fig = px.bar(
+    #     merged_df,
+    #     x=['Negative', 'Positive', 'Neutral'],
+    #     y="Month",
+    #     title='Sentiment Analysis by Month',
+    #     labels={'value': 'Count', 'variable': 'Sentiment'},
+    #     color_discrete_map={'Negative': 'red', 'Positive': 'green', 'Neutral': 'gray'},
+    #     barmode='stack',
+    #     orientation='h'
+    # )
+
     # Set the y-axis tickmode and dtick to display only integer values
     fig.update_yaxes(tickmode='linear', dtick=1)
 
