@@ -6,7 +6,7 @@ import asyncio
 # https://frankie567.github.io/httpx-oauth/oauth2/
 from httpx_oauth.clients.google import GoogleOAuth2
 from dotenv import load_dotenv
-from parse_files import *
+# from parse_files import *
 
 load_dotenv('.env')
 
@@ -39,7 +39,7 @@ def get_login_str():
     authorization_url = asyncio.run(
         get_authorization_url(client, REDIRECT_URI))
     print(authorization_url,'hjbjhvhjv')
-    return f'<a target="_self" href="{authorization_url}"> Google login </a>'
+    return f'<a target="_self" href="{authorization_url}"> Confirm Google Login </a>'
 
 
 def display_user() -> void:

@@ -10,11 +10,11 @@ def load_view():
     # login = st.button('Login')
     # email_data = []
     flag=False
-    if st.button("login"):
+    if st.button("Login"):
         st.write(get_login_str(), unsafe_allow_html=True)
         flag=True
     b=None
-    if st.button("display user"):  
+    if st.button("Update Chart"):  
         b=display_user()
         flag=True
     # st.write(b)
