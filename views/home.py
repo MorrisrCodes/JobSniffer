@@ -4,34 +4,22 @@ import plotly.express as px
 from auth import *
 
 def load_view():
-    login = st.button('Login')
-    email_data = []
-    st.write(get_login_str(), unsafe_allow_html=True)
+    # login = st.button('Login')
+    # email_data = []
+    if st.button("login"):
+        
+        st.button(get_login_str(), unsafe_allow_html=True)
+    b=None
     if st.button("display user"):  
-        display_user()
+        b=display_user()
+    st.write(b)
+    n=len(b) 
+    for i in range(n):
+        d=b[i]
+        st.write(d["company"])
 
-    if login:
-        email_data = [
-        {"Company": "Facebook","Position":"Filler", "Status": "Determination","Date": "11/19" },
-        {"Company": "Amazon","Position":"Filler", "Status": "Determination","Date": "11/19" },
-        {"Company": "Apple","Position":"Filler", "Status": "Awaiting","Date": "11/19" },
-        {"Company": "Netflix","Position":"Filler", "Status": "Interview Scheduled","Date": "11/19" },
-        {"Company": "Google","Position":"Filler",   "Status": "Awaiting","Date": "11/19" },
-        {"Company": "Microsoft","Position":"Filler", "Status": "Offer Extended","Date": "11/19" },
-        {"Company": "LinkedIn","Position":"Filler", "Status": "Application Rejected","Date": "11/19" },
-        {"Company": "Twitter","Position":"Filler", "Status": "Interview Completed","Date": "11/19" },
-        {"Company": "Uber","Position":"Filler", "Status": "Application Under Review","Date": "11/19" },
-        {"Company": "Airbnb","Position":"Filler", "Status": "Interview Declined","Date": "11/19" },
-        {"Company": "Salesforce","Position":"Filler", "Status": "Application Shortlisted","Date": "11/19" },
-        {"Company": "IBM","Position":"Filler", "Status": "Application Withdrawn","Date": "11/19" },
-        {"Company": "Intel","Position":"Filler", "Status": "Phone Interview Scheduled","Date": "11/19" },
-        {"Company": "HP","Position":"Filler", "Status": "Application on Hold","Date": "11/19" },
-        {"Company": "Dell","Position":"Filler", "Status": "Final Round Interview","Date": "11/19" },
-        {"Company": "Cisco","Position":"Filler", "Status": "Application Pending","Date": "11/19" },
-        {"Company": "Oracle","Position":"Filler", "Status": "Application Expired","Date": "11/19" },
-        {"Company": "Adobe","Position":"Filler", "Status": "Offer Negotiation","Date": "11/19" },
-        {"Company": "VMware","Position":"Filler", "Status": "Application Reviewed","Date": "11/19" },
-    ]
+
+    
 
     st.markdown("<h1 style='text-align: center;'>🐶 <span style='color: #3DD56D;'>Job</span> Sniffer</h1>", unsafe_allow_html=True)
 

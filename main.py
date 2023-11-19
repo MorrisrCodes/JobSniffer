@@ -19,10 +19,10 @@ def navigation():
         home.load_view()
     elif route == "home":
         home.load_view()
-    elif route == "Misson":
-        Misson.load_view()
-    elif route == "testpage":
-        testpage.load_view()
+    # elif route == "Misson":
+    #     Misson.load_view()
+    # elif route == "testpage":
+    #     testpage.load_view()
    
         
 navigation()

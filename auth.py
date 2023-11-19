@@ -6,13 +6,14 @@ import asyncio
 # https://frankie567.github.io/httpx-oauth/oauth2/
 from httpx_oauth.clients.google import GoogleOAuth2
 from dotenv import load_dotenv
+from parse_files import *
 
 load_dotenv('.env')
 
 CLIENT_ID = os.environ['CLIENT_ID']
 CLIENT_SECRET = os.environ['CLIENT_SECRET']
 REDIRECT_URI = os.environ['REDIRECT_URI']
-
+print(REDIRECT_URI)
 
 async def get_authorization_url(client: GoogleOAuth2, redirect_uri: str):
     authorization_url = await client.get_authorization_url(redirect_uri, scope=["profile", "email"])
@@ -51,3 +52,6 @@ def display_user() -> void:
         get_email(client, token['access_token']))
     st.write(
         f"You're logged in as {user_email} and id is {user_id}")
+    b=get_data()
+    # st.write(b)
+    return b

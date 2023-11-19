@@ -1,2 +1,11 @@
 {'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
 {'company': 'Grammarly', 'position': 'Software Engineer, Front-End (Retain and Expand)', 'status': 'rejected'}
+{'company': 'SRC', 'position': 'Machine Learning Engineer (Entry Level)', 'status': 'saved'}
+{'company': 'Google', 'position': 'Early experimenter', 'status': 'accepted'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'Google', 'position': 'Early experimenter', 'status': 'accepted'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
