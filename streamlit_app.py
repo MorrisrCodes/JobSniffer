@@ -18,95 +18,99 @@ from googleapiclient.errors import HttpError
 from datetime import datetime, timedelta
 from google.auth import credentials
 import mock
+from streamlit_oauth import OAuth2Component
+import os
 
 # Handle OAuth2 callback route
-AUTHORIZATION_CODE = "code"
-REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"# "http://localhost:8501"
-client_id = "323856597657-o1v0baasi5d7tgkprlkjk0ji4g6sccr3.apps.googleusercontent.com"
-SCOPES = ['openid', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
+# AUTHORIZATION_CODE = "code"
+# # REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"# "http://localhost:8501"
+# client_id = "323856597657-o1v0baasi5d7tgkprlkjk0ji4g6sccr3.apps.googleusercontent.com"
+# SCOPES = ['openid', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
 
 # load_dotenv()
 # client_id = os.environ["GOOGLE_CLIENT_ID"]
 # client_secret = os.environ["GOOGLE_CLIENT_SECRET"]
 # redirect_uri = os.environ["GOOGLE_REDIRECT_URI"]
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
 
-# Function to get user information after Google sign-in
-def google_sign_in(loggedIn):
-    if not loggedIn:
-        if st.button("Sign in with Google"):
-            st.write("TEST1")
-            loggedIn=True
-            # Create a flow instance
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'client_secrets.json',
-                scopes=SCOPES
-            )
-            st.write("TEST2")
-            # Run the OAuth 2.0 authorization flow
-            credentials = flow.run_local_server(
-                host='localhost',
-                port=8501,
-                authorization_prompt_message='Please visit this URL: {url}',
-                success_message='The auth flow is complete; you may close this window.',
-                open_browser=True
-            )
-            st.write("TEST3")
-            # Build the Google API service with the obtained credentials
-            service = build('oauth2', 'v2', credentials=credentials)
-            st.write("TEST4")
-            # Retrieve user information
-            user_info = service.userinfo().get().execute()
-            st.write("TEST5")
-            # Print or use the user information as needed
-            email = user_info.get('email', '')
-            name = user_info.get('name', '')
-            st.write("TEST6")
-            # Display user information
-            st.write(f"Email: {email}")
-            st.write(f"Name: {name}")
-            st.write("TEST")
+# Set environment variables
+AUTHORIZE_URL = os.environ.get('AUTHORIZE_URL')
+TOKEN_URL = os.environ.get('TOKEN_URL')
+REFRESH_TOKEN_URL = os.environ.get('REFRESH_TOKEN_URL')
+REVOKE_TOKEN_URL = os.environ.get('REVOKE_TOKEN_URL')
+CLIENT_ID = os.environ.get('CLIENT_ID')
+CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
+REDIRECT_URI = os.environ.get('REDIRECT_URI')
+# SCOPE = os.environ.get('SCOPE')
+SCOPE = "openid profile email"
+
+# Create OAuth2Component instance
+oauth2 = OAuth2Component(CLIENT_ID, CLIENT_SECRET, AUTHORIZE_URL, TOKEN_URL, REFRESH_TOKEN_URL, REVOKE_TOKEN_URL)
+
+# # Function to get user information after Google sign-in
+def google_sign_in():
+#     # if st.button("Sign in with Google"):
+# Check if token exists in session state
+    if 'token' not in st.session_state:
+        # If not, show authorize button
+        result = oauth2.authorize_button("Authorize", REDIRECT_URI, SCOPE)
+        if result and 'token' in result:
+            # If authorization successful, save token in session state
+            st.session_state.token = result.get('token')
+            st.experimental_rerun()
     else:
-        st.write("logged in")
+        # If token exists in session state, show the token
+        token = st.session_state['token']
+        # st.json(token)
+        if st.button("Refresh Token"):
+            # If refresh token button is clicked, refresh the token
+            token = oauth2.refresh_token(token)
+            st.session_state.token = token
+            # st.json(token)
+            st.experimental_rerun()
+            
 
 # Authenticate to Firestore with the JSON account key.
 db = firestore.Client.from_service_account_json("jobsniffer-firestore-key.json")
 
-# Function to create a new user
-def create_user(email):
-    # Authenticate the user with Google credentials
-    user = auth.get_user_by_email(email)
+# # Function to create a new user
+# def create_user(email):
+#     # Authenticate the user with Google credentials
+#     user = auth.get_user_by_email(email)
 
-    # Retrieve user information
-    uid = user.uid
-    display_name = user.display_name
+#     # Retrieve user information
+#     uid = user.uid
+#     display_name = user.display_name
 
-    # Create a new document for the user in the "users" collection
-    user_ref = db.collection('users').document(uid)
+#     # Create a new document for the user in the "users" collection
+#     user_ref = db.collection('users').document(uid)
 
-    # Create subcollections "Becky" and "Carl" if they don't exist
-    for collection_name in ["Becky", "Carl"]:
-        collection_ref = user_ref.collection(collection_name).document()
+#     # Create subcollections "Becky" and "Carl" if they don't exist
+#     for collection_name in ["Becky", "Carl"]:
+#         collection_ref = user_ref.collection(collection_name).document()
 
-        # Add user details to subcollections
-        collection_ref.set({
-            'name': display_name,
-            'email': email,
-            # Add other user details as needed
-        })
+#         # Add user details to subcollections
+#         collection_ref.set({
+#             'name': display_name,
+#             'email': email,
+#             # Add other user details as needed
+#         })
 
-def get_user_email(token):
-    try:
-        # Verify the ID token
-        decoded_token = auth.verify_id_token(token)
+# def get_user_email(token):
+#     try:
+#         # Verify the ID token
+#         decoded_token = auth.verify_id_token(token)
 
-        # Get the user's email from the decoded token
-        user_email = decoded_token.get('email')
+#         # Get the user's email from the decoded token
+#         user_email = decoded_token.get('email')
 
-        return user_email
-    except auth.InvalidIdTokenError:
-        # Handle invalid ID token
-        print("Invalid ID token.")
-        return None
+#         return user_email
+#     except auth.InvalidIdTokenError:
+#         # Handle invalid ID token
+#         print("Invalid ID token.")
+#         return None
 
 loggedIn=False
 
@@ -129,7 +133,8 @@ doc_ref = db.collection("users").document("jobs").collection("Becky").document("
 
 # And then uploading some data to that reference
 doc_ref.set({
-	"sentiment": "apprehensive"
+	"company": "microsoft",
+    "status": "accepted"
 })
 
 # # Now let's make a reference to ALL of the posts
@@ -139,12 +144,14 @@ doc_ref.set({
 for doc in users_ref.stream():# Get job position name
         job_position = doc.id
 
-        # Get sentiment field
-        sentiment = doc.to_dict().get("sentiment", "")
+        # Get fields
+        company= doc.to_dict().get("company", "")
+        status = doc.to_dict().get("status", "")
 
         # Print or process the data as needed
         st.write("Job Position: ", job_position)
-        st.write("Sentiment: ", sentiment)
+        st.write("Company: ", company)
+        st.write("Status: ", status)
 
 # This time, we're deleting a job reference for position
 doc_ref = db.collection("users").document("jobs").collection("Becky").document("MBA Internships - Summer 2024")
@@ -191,5 +198,9 @@ doc_ref.delete()
 # st.write("test2")
 # st.write(email+' '+name)
 
-if google_sign_in(loggedIn):
+if google_sign_in():
      st.write("AFTER BUTTON")
+
+email="blank@gmail.com"
+if 'token' in st.session_state:
+    st.session_state.token
