@@ -1,6 +1,6 @@
 import streamlit as st
 import utils as utl
-from views import home,Misson,testpage
+from views import home,Misson,testpage,data_view
 
 st.set_page_config(layout="wide", page_title='Main Page')
 
@@ -16,7 +16,8 @@ def navigation():
         Misson.load_view()
     elif route == "testpage":
         testpage.load_view()
-   
-        
+    elif route == "data_view":
+        data_view.load_view()
+
 navigation()
 
