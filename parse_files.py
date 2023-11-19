@@ -83,6 +83,7 @@ for i in range(len(gg)):
                 # print(i)
                 
     except Exception as e:
+        continue
         print(f"An error occurred: {str(e)}")
         
     
