@@ -201,6 +201,6 @@ doc_ref.delete()
 if google_sign_in():
      st.write("AFTER BUTTON")
 
-email="blank@gmail.com"
-if 'token' in st.session_state:
-    st.session_state.token
+# email="blank@gmail.com"
+# if 'token' in st.session_state:
+#     st.session_state.token
