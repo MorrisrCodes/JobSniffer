@@ -1,0 +1,2 @@
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'Grammarly', 'position': 'Software Engineer, Front-End (Retain and Expand)', 'status': 'rejected'}
