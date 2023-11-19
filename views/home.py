@@ -1,11 +1,15 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
+from auth import *
 
 def load_view():
     login = st.button('Login')
     email_data = []
+    st.write(get_login_str(), unsafe_allow_html=True)
+    if st.button("display user"):  
+        display_user()
+
     if login:
         email_data = [
         {"Company": "Facebook", "Date": "07/30", "Summary": "Negative", "Status": "Determination"},

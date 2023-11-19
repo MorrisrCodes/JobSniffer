@@ -3,9 +3,9 @@ import utils as utl
 from views import home,Misson
 import pandas as pd
 import plotly.express as px
+from auth import *
 
 st.set_page_config(layout="wide", page_title='Main Page')
-
 st.set_option('deprecation.showPyplotGlobalUse', False)
 utl.inject_custom_css()
 utl.navbar_component()
