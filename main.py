@@ -2,7 +2,7 @@ import streamlit as st
 import utils as utl
 from views import home,Misson,testpage
 
-st.set_page_config(layout="wide", page_title='Main Page')
+st.set_page_config(layout="centered", page_title='Main Page')
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 utl.inject_custom_css()

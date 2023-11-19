@@ -38,9 +38,10 @@ def load_view():
     st.markdown("<div style='text-align: center;'>Sniffing out job opportunities in your emails and delivering them right to your inbox!</div>", unsafe_allow_html=True)
     st.markdown('')
 
-    
+
 
      # Concatenate the list of DataFrames into a single DataFrame if email_data is not empty
     if email_data:
         data = pd.concat([pd.DataFrame([i], columns=["Company", "Position", "Date", "Status"]) for i in email_data], ignore_index=True)
-        st.dataframe(data, hide_index=True, width=1000, height =1000)
+        st.dataframe(data, hide_index=True, width=1000, height = (len(email_data) + 1) * 35 + 3
+)
