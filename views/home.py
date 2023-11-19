@@ -45,6 +45,6 @@ def load_view():
 
      # Concatenate the list of DataFrames into a single DataFrame if email_data is not empty
     if email_data:
-        data = pd.concat([pd.DataFrame([i], columns=["Company", "Position", "Date", "Status"]) for i in email_data], ignore_index=True)
+        data = pd.DataFrame(email_data)
         st.dataframe(data, hide_index=True, width=1000, height = (len(email_data) + 1) * 35 + 3
 )
