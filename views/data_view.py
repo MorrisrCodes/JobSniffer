@@ -44,7 +44,7 @@ def firestore_to_panda():
     return df
 
 def load_view():
-    test=st.button("PRESS HERE")
+    test=st.button("VIEW CHART")
     if test:
         # st.write("magic time")
         # df=firestore_to_panda_old()
