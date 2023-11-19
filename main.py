@@ -1,6 +1,9 @@
 import streamlit as st
 import utils as utl
-from views import home, Misson, testpage
+from views import home,Misson
+import pandas as pd
+import plotly.express as px
+from auth import *
 
 st.set_page_config(layout="centered", page_title='Main Page')
 
@@ -20,5 +23,6 @@ def navigation():
         Misson.load_view()
     elif route == "testpage":
         testpage.load_view()
-
+   
+        
 navigation()

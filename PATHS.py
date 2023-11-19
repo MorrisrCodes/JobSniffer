@@ -1,5 +1,6 @@
 NAVBAR_PATHS = {
     'HOME':'home',
     'MISSION': 'Misson',
-    "TEST": "testpage"
+    "TEST": "testpage",
+    'DATA': 'data_view',
 }

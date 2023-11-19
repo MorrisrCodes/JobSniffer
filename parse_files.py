@@ -13,11 +13,11 @@ import json
 import ast
 
 
-palm.configure(api_key='API_KEY')
+palm.configure(api_key='AIzaSyA4Q4S0uYiv_5MFt8FdxGoOwjvEt2DhkyY')
 SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
 
 
-
+creds = None
 
 if os.path.exists("token.json"):
     creds = Credentials.from_authorized_user_file("token.json", SCOPES)
