@@ -9,3 +9,15 @@
 {'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
 {'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
 {'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'SRC', 'position': 'Machine Learning Engineer (Entry Level)', 'status': 'submitted'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'SRC', 'position': 'Machine Learning Engineer (Entry Level)', 'status': 'submitted'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'Founders, Inc.', 'position': 'Side Project', 'status': 'submitted'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'SRC', 'position': 'Machine Learning Engineer (Entry Level)', 'status': 'saved'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}
+{'company': 'ZipRecruiter', 'position': 'Software Engineer, Machine Learning', 'status': 'rejected'}

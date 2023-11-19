@@ -2,33 +2,39 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from auth import *
-import data_view as dv
+from . import data_view as dv
 from google.cloud import firestore
 
 def load_view():
     db = firestore.Client.from_service_account_json("jobsniffer-firestore-key.json")
     # login = st.button('Login')
     # email_data = []
+    flag=False
     if st.button("login"):
-        st.button(get_login_str(), unsafe_allow_html=True)
+        st.write(get_login_str(), unsafe_allow_html=True)
+        flag=True
     b=None
     if st.button("display user"):  
         b=display_user()
-    st.write(b)
-    n=len(b)
-
-    for i in range(n):
-        d=b[i]
-        doc_ref = db.collection("user").document(d["position"])
-        doc_ref.set({
-        "company": d["company"],
-        "status": d["status"]
-        })
-    
+        flag=True
+    # st.write(b)
+    if(b):
+        n=len(b)
+        # st.write("I AM IN LENGTH")
+        for i in range(n):
+            # st.write("THE CURRENT INDEX IS ",i)
+            d=b[i]
+            doc_ref = db.collection("user").document(d["position"])
+            doc_ref.set({
+            "company": d["company"],
+            "status": d["status"]
+            })
+    # st.write("before panda")
     df=None
-    dv.firestore_to_panda()
-
-    if not df.empty:
+    df=dv.firestore_to_panda()
+    # st.write("after panda")
+    
+    if not df.empty and flag:
         print(df)
         st.write(df)
 
